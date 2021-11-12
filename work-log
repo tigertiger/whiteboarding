@@ -30,3 +30,5 @@ function deduper(array) {
 }
 
   -- I am a big dummy and it was working all along, I just wasn't calling it. >[[[
+
+-- Solve problem 3 non-recursively:

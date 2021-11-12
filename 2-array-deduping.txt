@@ -13,9 +13,7 @@ Output: [7, 9, "hi", 12, 53]
 function deduper(array) {
   let singleArray = [];
   for (let i = 0; i < array.length; i ++ ) {
-    if (singleArray.includes(array[i])) {
-      console.log(array[i]);
-    } else {
+    if (singleArray.includes(array[i]) === false) {
       singleArray.push(array[i]);
     }
   }
