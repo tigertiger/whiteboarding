@@ -11,3 +11,27 @@ Input: "copyright"
 Output: true
 
 ---------------------------------------------------------------------------
+
+// Hmm, hmm, hmm...okay. Goodbye, best friend arrays.
+// What are string methods?
+// Can I use indexOf?
+// How would I do this as a human being?
+// h, check; e, check, l, check, l, uh oh, o, check. Boys, we found 2 L's! That's a big false right there.
+// So I have to check each letter and then as soon as I find one that repeats, I can answer the question.
+// I could probably use regex for this, but I don't know how, so I won't.
+// how about if I find the unique string and then compare it to the original string?
+// Ha ha ha, that works. Woo.
+
+function uniqueZone(string) {
+  let noDupes = "";
+  for(let i = 0; i <string.length; i++) {
+    if(noDupes.includes(string[i]) === false) {
+      noDupes += string[i];
+    }
+  }
+  if (noDupes === string) {
+    return true;
+  } else {
+    return false;
+  }
+}

@@ -16,3 +16,17 @@ Output: [2, 7, 9, 12]
 
 ---------------------------------------------------------------------------
 
+// hm, okay, well, I can get partway there by checking if i is <= i+1, but it leaves a bunch behind...and also...yeah, doesn't really work at all. :D
+
+
+function sorter(array) {
+  let sortedArray = [];
+  for (let i = 0; i < array.length; i ++ ) {
+    if (array[i] <= array[i + 1]) {
+      sortedArray.push(array[i]);
+    } else if (array === array[i]) {
+      sortedArray.push(array[i]);
+    }
+  }
+  return sortedArray;
+}
