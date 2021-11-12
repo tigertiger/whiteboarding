@@ -41,21 +41,40 @@ function sorter(array) {
 
 function sorter(array) {
   for(let i=0; i<array.length; i++) {
-    let smolest = i;
-    for(let tester = i+1; tester < array.length; tester++) {
+    let smolest = i; //say that first index is smallest, even if it's not
+    for(let tester = i+1; tester < array.length; tester++) { //use every other index as tester to test against our supposed smallest
       if(array[tester] < array[smolest]) {
-        smolest = tester;
+        smolest = tester; //if tester is smaller than current smallest, turn tester into smallest
       }
     }
-    if (i != smolest) {
-      let nextBigger = array[i]; //save this index
-      array[i] = array[smolest]; //convert/swap to smallest
-      array[smolest] = nextBigger; //swap to nextBigger
+    if (i != smolest) { // as we loop, if the index in question is not the current smallest, we:
+      let nextBigger = array[i]; //save this index [as nextBigger]
+      array[i] = array[smolest];
+      array[smolest] = nextBigger;
     }
   }
   return array;
 }
 
+--
+
+function sorter(array) {
+  for (let i = 0; i < array.length - 1; i++) {
+    let smolest = i; // decide first index is smallest, even if it's not
+    for (let tester = i + 1; tester < array.length; tester++) { //set next index as tester index to compare with "smallest"
+      if (array[tester] < array[smolest]) { //if tester is smaller than "smallest" then we turn tester into new "smallest"
+        smolest = tester;
+      }     
+    }
+    [array[i], array[smolest]] = [array[smolest], array[i]]; //as we go through swapping our smallest, we also literally swap their positions in the array, so that the smallest is leftermost.
+  }
+  return array;
+}
+
+
+// Now to try to solve it some other way...
+// *reads all of the things recommended for reading about different sorts*
+// I'll just stick with selection sort, ha ha
 
 
 ---------------------------------------------------------------------------
