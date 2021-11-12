@@ -7,3 +7,35 @@ Input: "aaabccdddda"
 Output: "3ab2c4da"
 
 ---------------------------------------------------------------------------
+// increment a counter for each copy of the input item
+// push non-dupes to array
+// combine counter and non-dupe array
+// make sure they're properly associated...
+// buuut, it needs dupes if they're separated by other input items...sooo...time for coffee.
+
+// Hokaii, so...if i = i+1, then we count.
+// Once i != i +1, then we return counter + i
+// Then we journey onward.
+// But will my output be 3a0b2c4d0a? I will find out if I must remove the 0's.
+// No! But the math is wrong! compressor("aaabccdddda") returns '2a2b3c6d6a'
+// if [0] = a & [1] = a, my counter should go from 0 to 1, if [2] is also a, my counter should go to 2...Ah ha, so I must start my counter at 1, and also, I must reset my counter for each new bit...how does one do that? 
+// I suppose with a simple reset to 1.
+// Alrighty, so now we get: '3a1b2c4d1a'
+// There are many ways I could remove these 1s, but I will chop them with my axe (replace()).
+// This assumes that the input is not integers...I'm okay with that.
+
+function compressor(input) {
+  let output = "";
+  let counter = 1;
+  // let workingBlob = input.toString().split("");
+  let workingBlob = input.split("");
+  for (i = 0; i < workingBlob.length; i++) {
+    if (workingBlob[i] === workingBlob[i +1]) {
+      counter ++;
+    } else {
+      output += counter + workingBlob[i];
+      counter = 1;
+    }
+  }
+    return output.replace(1,"");
+}
