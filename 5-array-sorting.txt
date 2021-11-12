@@ -16,10 +16,53 @@ Output: [2, 7, 9, 12]
 
 ---------------------------------------------------------------------------
 
-// hm, okay, well, I can get partway there by checking if i is <= i+1, but it leaves a bunch behind...and also...yeah, doesn't really work at all. :D
+// *hm, okay, well, I can get partway there by checking if i is <= i+1, but it leaves a bunch behind...and also...yeah, doesn't really work at all. :D
+// What iffff I have 2 arrays? Does that help me somehow?
+// If I compare the values in array1 to the values in array 2 and I use that to do the sorting? Does that solve the problem? Probably.
+// So copyArray = array, and we go is array[i] <= copyArray[i]? If so, weeeee don't want to push it immediately, because...it might be bigger than a later number...so we want to mark it somehow? Or move it to the beginning? Can I move things? I'm sure I can. Reassigning and whathaveyou.
+// I don't think I need 2 arrays for this.
 
+// I will find the smolest item first
 
 function sorter(array) {
+    for(let i = 0; i <array.length; i++) {
+        let smole = i;
+        for(let test = i+1; test <array.length; test++) {
+            if(array[test] < array[smole]) {
+                smole = test;
+            }
+            return smole;
+        }
+    }
+    console.log(smole);
+}
+
+// I have found the smolest. Now what do we do? Now we swip-swap. Oer & oer.
+
+function sorter(array) {
+  for(let i=0; i<array.length; i++) {
+    let smolest = i;
+    for(let tester = i+1; tester < array.length; tester++) {
+      if(array[tester] < array[smolest]) {
+        smolest = tester;
+      }
+    }
+    if (i != smolest) {
+      let nextBigger = array[i]; //save this index
+      array[i] = array[smolest]; //convert/swap to smallest
+      array[smolest] = nextBigger; //swap to nextBigger
+    }
+  }
+  return array;
+}
+
+
+
+---------------------------------------------------------------------------
+
+Old Garbage:
+
+*function sorter(array) {
   let sortedArray = [];
   for (let i = 0; i < array.length; i ++ ) {
     if (array[i] <= array[i + 1]) {
