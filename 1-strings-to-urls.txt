@@ -17,5 +17,35 @@ function replacer(string) {
   return splitString;
 }
 
+// edge case handling:
+
+function replacer(string) {
+  let splitString = string.split(" ");
+  if (splitString.length === 1) {
+    return splitString.join("");
+  } else {
+  splitString.join("%20");
+  return splitString;
+  }
+}
+
 //with recursion
 
+function recursiveReplace(string, a, b)
+{
+    // Base Case/Stopper
+    if (string.length == 1)
+    {
+        return string;
+    }
+    let tester=string.charAt(0);
+ 
+    if (string.charAt(0) == a)
+    {
+        tester=b;
+        string = b+string.substring(1);
+    }
+ 
+    // Recurse
+    return tester+recursiveReplace(string.substring(1),a, b);
+}
