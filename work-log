@@ -33,4 +33,4 @@ function deduper(array) {
 
 -- Solve problem 3 non-recursively: see notes in problem 3 document.
 -- Solve problem 4 non-recursively: see notes in problem 4 document.
--- Solve problem 5 non-recursively: 
+-- Solve problem 5 non-recursively: see notes in problem 5 document.
