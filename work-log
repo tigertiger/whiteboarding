@@ -1,0 +1,32 @@
+-- Solve problem 1 non-recursively
+-- Solve problem 2 non-recursively: ran into some syntax issues; spent some time playing in jsfiddle to figure out what wasn't working. --- Kept returning an empty array with:
+
+let array = [7, 9, "hi", 12, "hi", 7, 53];
+  let singleArray = [];
+function deduper(array) {
+  for (let i = 0; i < array.length; i ++ ) {
+    if ((singleArray.includes(array[i])) === false) {
+      singleArray.push(array[i]);
+    }
+  }
+  return singleArray;
+}
+console.log(singleArray);
+
+-- Checked all the pieces singularly and it...should work?
+
+Switched up if statement to: 
+let array = [7, 9, "hi", 12, "hi", 7, 53];
+function deduper(array) {
+  let singleArray = [];
+  for (let i = 0; i < array.length; i ++ ) {
+    if (singleArray.includes(array[i])) {
+      console.log(array[i]);
+    } else {
+      singleArray.push(array[i]);
+    }
+  }
+  return singleArray;
+}
+
+  -- I am a big dummy and it was working all along, I just wasn't calling it. >[[[
