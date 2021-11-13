@@ -1,0 +1,48 @@
+// turning strings into urls
+// no spaces
+// replace spaces with %20
+// replace all spaces with %20
+// may not use replace() or regex
+
+--
+
+// isolate the spaces
+// split(" ");
+// If I split: [Melissa, " ", Claire, " ", SchatzMiller]
+// Joining the array back together, using the .join, which allows me replace whatever my "%20"
+
+Input: Melissa Claire SchatzMiller
+Output: Melissa%20Claire%20SchatzMiller
+
+function replacer(string) {
+  let splitString = string.split(" ");
+  if (splitString.length === 1) {
+    return splitString.join("");
+  }
+  splitString.join("%20");
+  return splitString;
+}
+
+//return Melissa%20Claire%20SchatzMiller
+
+
+If I were not to use split & join.
+---
+string = Melissa Claire SchatzMiller
+function recursiveReplace(string, a, b) 
+// recursiveReplace("Melissa Claire SchatzMiller, " ", "%20")
+{
+  // Base Case
+  if (string.length === 1) {
+    return string;
+}
+  let tester = string.charAt(0) {
+    if (string.charAt == a) {
+      string = b+string.substring(1);
+    }
+    return b+recursiveReplace(string.substring(1), a, b)
+
+  }
+}
+
+
